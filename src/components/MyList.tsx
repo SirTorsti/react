@@ -1,34 +1,28 @@
 import React from 'react'
 
 type TItem = {
-    id: string  
-    text: string
-    clicked: boolean
+  id: string  
+  text: string
 }
 
-interface Listprops {
-    header: string
-    items: TItem[]
-    updateClickedItem: (id: string) => void
-
+interface ListProps {
+  header: string
+  items: TItem[]
 }
-const MyList: React.FC<Listprops> =({header, items, updateClickedItem}) => {
+
+const MyList: React.FC<ListProps> = ({ header, items }) => {
   return (
     <div>
-        <h2>{header}</h2>
-        <ol>
-            {items.map(item => (
-                <li 
-                key={item.id}
-                onClick={() => updateClickedItem(item.id)}
-                style={{ textDecoration: item.clicked ? 'line-through' : '' }}
-                >
-                {item.text}
-                </li>
-            ))}
-        </ol>
+      <h2>{header}</h2>
+      <ol>
+        {items.map(item => (
+          <li key={item.id}>
+            {item.text}
+          </li>
+        ))}
+      </ol>
     </div>
   )
 }
 
-export default MyList;
+export default MyList
