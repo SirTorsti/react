@@ -20,11 +20,14 @@ const MyContainer: React.FC = () => {
     }
     return (
         <div>
-            
-            <MyList header="My List" items={items} updateClickedItem={updateClickedItem} />
-            <textarea value={newItemText} onChange={(e) => setNewItemText(e.target.value)} placeholder="Enter new text" />
-            <button onClick={addItem}>Add Item</button>
-        </div>
+        <MyList header="My List" items={items} updateClickedItem={updateClickedItem} />
+        <textarea
+          value={newItemText}
+          onChange={(e) => setNewItemText(e.target.value)}
+          placeholder="Enter new item text"
+        />
+        <button onClick={addItem}>Add Item</button>
+      </div>
     )
 }
 export default MyContainer
