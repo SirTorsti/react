@@ -13,15 +13,15 @@ const MyContainer: React.FC = () => {
         setNewItemText('')
     }
 
-    const handleClick = (id: string) => {
-        setItems(items.map(item => (
+    const updateClickedItem = (id: string): void => {
+        setItems(items.map(item => 
             item.id === id ? { ...item, clicked: !item.clicked } : item
-        )))
+        ))
     }
     return (
         <div>
             
-            <MyList header="My List" items={items} onItemClick={handleClick} />
+            <MyList header="My List" items={items} updateClickedItem={updateClickedItem} />
             <textarea value={newItemText} onChange={(e) => setNewItemText(e.target.value)} placeholder="Enter new text" />
             <button onClick={addItem}>Add Item</button>
         </div>

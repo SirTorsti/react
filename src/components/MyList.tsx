@@ -9,10 +9,10 @@ type TItem = {
 interface Listprops {
     header: string
     items: TItem[]
-    onItemClick: (id: string) => void
+    updateClickedItem: (id: string) => void
 
 }
-const MyList: React.FC<Listprops> =({header, items, onItemClick}) => {
+const MyList: React.FC<Listprops> =({header, items, updateClickedItem}) => {
   return (
     <div>
         <h2>{header}</h2>
@@ -20,8 +20,8 @@ const MyList: React.FC<Listprops> =({header, items, onItemClick}) => {
             {items.map(item => (
                 <li 
                 key={item.id}
-                onClick={() => onItemClick(item.id)}
-                style={{ textDecoration: item.clicked ? 'line-through' : 'none' }}
+                onClick={() => updateClickedItem(item.id)}
+                style={{ textDecoration: item.clicked ? 'line-through' : '' }}
                 >
                 {item.text}
                 </li>
