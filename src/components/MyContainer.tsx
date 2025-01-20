@@ -1,8 +1,8 @@
 import React, {useState} from 'react' 
 import MyList from './MyList'
 
-function MyContainer() {
-    const [items, setItems] = useState<{ id: string; text: string; clicked: boolean }[]>([{ id: '1', text: 'Item 1', clicked: false },
+const MyContainer: React.FC = () => {
+    const [items, setItems] = useState([{ id: '1', text: 'Item 1', clicked: false },
         { id: '2', text: 'Item 2', clicked: false }])
     const [newItemText, setNewItemText] = useState('')
 
